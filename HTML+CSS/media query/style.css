@@ -1,0 +1,19 @@
+@media(min-width: 600px) , (max-width: 400px){
+    body{
+        background-color: black;
+    }
+}
+
+/* we can use logical and and logical or operators between @media conditions. we use and for and and comma (,) for or */
+
+@container(width > 500px){
+    p{
+        color: red;
+    }
+}
+
+body{
+    height:100vh;
+    margin:0;
+    container-type: inline-size;
+}

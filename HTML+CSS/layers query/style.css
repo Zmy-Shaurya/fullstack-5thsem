@@ -1,0 +1,27 @@
+@layer long, tall, square;
+/* @layer tall, square, long; */
+/* @layer square, long, tall; */
+
+@layer long {
+  .long {
+    background-color: red;
+    height: 100px;
+    width: 300px;
+  }
+}
+
+@layer tall{
+    .tall {
+        background-color: blue;
+        height: 300px;
+        width: 100px;
+    }
+}
+
+@layer square{
+    .square {
+        background-color: green;
+        height: 200px;
+        width: 200px;
+    }
+}

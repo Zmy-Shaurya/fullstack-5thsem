@@ -1,0 +1,71 @@
+.bigimg{
+    height: 400px;
+    width: 400px;
+}
+
+.smallimg{
+    height: 200px;
+}
+
+.smallimg,.bigimg{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 20px;
+    border: 5px rgb(113, 201, 206) solid;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+    
+}
+.smallimg:hover,.bigimg:hover, p:hover{
+    transform: translateY(-5px);
+}
+
+.images{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content:center;
+}
+
+
+
+h1{
+    color: rgb(102, 208, 218);
+    font-weight: bolder;
+    text-align: center;
+    margin: 30px;
+    font-size: xxx-large;
+    font-family: "Rock Salt", cursive;
+}
+
+p{
+    background: rgb(203, 241, 245);
+    font-style: italic;
+    margin: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: block;
+    font-size: larger;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+body{
+    background: rgb(113, 201, 206);
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    align-content: center;
+    
+}
+.contentdiv{
+    background-color: rgb(227, 253, 253);
+    display: block;
+    margin: auto;
+    width: 1000px;
+    height: 800px;
+    border-radius: 40px;
+    align-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}

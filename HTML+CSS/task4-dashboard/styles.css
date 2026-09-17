@@ -1,0 +1,71 @@
+.fullpage-box{
+    display:flex;
+    flex-direction: row;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: rgb(167, 181, 245);
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 98vh;
+}
+
+.DashboardHeader{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    background-color: rgb(156, 255, 255);
+    width: 100vw;
+    margin: 5px;
+    border-radius: 10px;
+}
+#user-pic{
+    height: 80px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+}
+#logo_image{
+    height: 70px;
+    border-radius: 100%;
+    margin: 10px;
+}
+
+.analytics{
+    display: flex;
+    flex-direction: row;
+    padding: 10px ;
+    gap: 10px;
+}
+
+.analyticscard{
+    border-color: black;
+    border: 1px solid ;
+    border-radius: 10px;
+    height: 200px;
+    width: 190px;
+    padding: 10px;
+}
+
+.sidebarbuttons{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.sidebutton{
+    background-color:rgb(243, 197, 163);
+    border: 4px solid;
+}

@@ -1,0 +1,45 @@
+.box1, .box2, .box3, .box4 {
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-size: xx-large;
+}
+
+.box1{
+    background-color: black;
+    position: static;
+    
+}
+
+.box2{
+    background-color: red;
+    position: sticky;
+    top: 40px;
+}
+
+.box3{
+    background-color: blue;
+}
+
+.box4{
+    background-color: greenyellow;
+}
+
+.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* CSS position rules:
+   static   - default; elements stay in normal flow and top/right/bottom/left do not apply.
+   relative - stays in normal flow but can be shifted from its original spot.
+   absolute - removed from normal flow; positioned relative to the nearest non-static ancestor.
+   fixed    - removed from normal flow; positioned relative to the viewport and stays on scroll.
+   sticky   - acts relative until a scroll point, then behaves like fixed within its container.
+*/
+
+

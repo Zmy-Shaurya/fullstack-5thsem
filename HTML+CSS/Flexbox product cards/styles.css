@@ -1,0 +1,35 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    background-color: bisque;
+    padding: 15px;
+    border:2px black solid;
+}
+
+img{
+    width:150px;
+    height:150px;
+}
+
+#prodName{
+    font-size: large;
+    font-weight: bolder;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#prodDesc{
+    font-style: italic;
+}
+
+#price{
+    font-weight: bolder;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 30px;
+}

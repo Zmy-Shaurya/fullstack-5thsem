@@ -1,0 +1,39 @@
+.box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(196, 241, 255) ;
+    width:30%;
+    padding: 20px;
+    font-size:xx-large;
+    border-radius: 30px;
+    border: 10px rgb(99, 224, 247) solid;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height:100vh;
+    justify-content: center;
+
+}
+
+.field{
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.submit{
+    display: flex;
+    border-radius: 8px;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+#submit{
+    height: 30px;
+    width: 100px;
+    font-size: 20px
+    
+}
