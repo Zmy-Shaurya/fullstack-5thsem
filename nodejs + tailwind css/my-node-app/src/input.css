@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.heading {
+  @apply mb-4 text-center text-xl font-bold text-gray-900 dark:text-white;
+}
+.box {
+  @apply w-full max-w-md rounded-lg bg-white p-6 text-gray-900 shadow dark:bg-gray-800 dark:text-white;
+}
+body {
+  @apply flex min-h-screen items-center justify-center bg-gray-100 p-4 text-gray-900 dark:bg-gray-900 dark:text-white;
+}
+form {
+  @apply flex flex-col gap-3;
+}
+label {
+  @apply text-sm font-semibold;
+}
+input {
+  @apply rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white;
+}
+button {
+  @apply rounded bg-blue-600 px-4 py-2 font-semibold text-white dark:bg-blue-700;
+}
