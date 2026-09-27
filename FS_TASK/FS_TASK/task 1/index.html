@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowTask - SaaS Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] text-[#475569] text-[16px]" style="font-family: 'Inter', sans-serif;">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b border-[#E2E8F0]">
+    <div class="max-w-[1200px] mx-auto px-6 h-[72px] flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2 font-bold text-[#0F172A] text-lg">
+        <span class="w-8 h-8 bg-[#4F46E5] text-white rounded-lg flex items-center justify-center">F</span>
+        FlowTask
+      </a>
+
+      <ul class="hidden sm:flex gap-8 text-[14px] font-medium text-[#475569]">
+        <li><a href="#" class="hover:text-[#4F46E5]">Features</a></li>
+        <li><a href="#" class="hover:text-[#4F46E5]">Pricing</a></li>
+        <li><a href="#" class="hover:text-[#4F46E5]">Docs</a></li>
+      </ul>
+
+      <div class="hidden sm:flex items-center gap-4 text-[14px] font-medium">
+        <a href="#" class="text-[#0F172A]">Login</a>
+        <a href="#" class="bg-[#4F46E5] hover:bg-[#4338CA] text-white px-5 py-2 rounded-lg">Get Started</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="sm:hidden text-2xl text-[#0F172A]">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-[1200px] mx-auto px-6 mt-20 min-h-[520px] flex items-center gap-12">
+    <div class="max-w-[650px] text-center sm:text-left">
+      <span class="inline-block bg-indigo-100 text-[#4F46E5] text-sm font-medium px-3 py-1 rounded-full mb-4">Work Smarter</span>
+      <h1 class="text-[36px] sm:text-[48px] font-bold leading-[1.1] text-[#0F172A]">
+        Build Better Products Faster With Our Platform
+      </h1>
+      <p class="mt-5 text-[18px] leading-[1.6]">
+        Streamline your workflow, collaborate with your team and ship faster with our all-in-one platform.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a href="#" class="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-medium px-6 py-3 rounded-lg text-center">Get Started</a>
+        <a href="#" class="border border-[#4F46E5] text-[#4F46E5] bg-white font-medium px-6 py-3 rounded-lg text-center">View Demo</a>
+      </div>
+    </div>
+
+    <!-- Dashboard placeholder (desktop only) -->
+    <div class="hidden lg:flex flex-col gap-6 flex-1 h-[320px] bg-white border border-[#E2E8F0] rounded-2xl shadow-lg items-center justify-center text-[#475569]">
+      Dashboard Image
+      <!-- Team faces -->
+      <div class="flex gap-3">
+        <img src="images/face1.webp" alt="Team member" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+        <img src="images/face2.webp" alt="Team member" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+        <img src="images/face3.webp" alt="Team member" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+        <img src="images/face4.webp" alt="Team member" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-[1200px] mx-auto px-6 py-20">
+    <div class="text-center">
+      <h2 class="text-[32px] font-bold text-[#0F172A]">Powerful Features</h2>
+      <p class="mt-2">Everything you need to build, manage and grow your product.</p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white border border-[#E2E8F0] rounded-xl p-6">
+        <div class="w-10 h-10 bg-indigo-100 text-[#4F46E5] rounded-lg flex items-center justify-center mb-4">1</div>
+        <h3 class="text-[20px] font-semibold text-[#0F172A]">Fast &amp; Reliable</h3>
+        <p class="mt-2">Experience blazing fast performance with 99.9% uptime.</p>
+      </div>
+      <div class="bg-white border border-[#E2E8F0] rounded-xl p-6">
+        <div class="w-10 h-10 bg-indigo-100 text-[#4F46E5] rounded-lg flex items-center justify-center mb-4">2</div>
+        <h3 class="text-[20px] font-semibold text-[#0F172A]">Team Collaboration</h3>
+        <p class="mt-2">Work together seamlessly with real-time updates.</p>
+      </div>
+      <div class="bg-white border border-[#E2E8F0] rounded-xl p-6">
+        <div class="w-10 h-10 bg-indigo-100 text-[#4F46E5] rounded-lg flex items-center justify-center mb-4">3</div>
+        <h3 class="text-[20px] font-semibold text-[#0F172A]">Secure by Design</h3>
+        <p class="mt-2">Your data is always protected with enterprise-grade security.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

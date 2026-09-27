@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopKart - Product Listing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] text-[#6B7280] text-[14px]" style="font-family: 'Inter', sans-serif;">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b border-[#E5E7EB]">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <!-- Mobile menu button -->
+        <button class="sm:hidden text-xl text-[#111827]">&#9776;</button>
+        <a href="#" class="flex items-center gap-2 font-bold text-[#111827] text-lg">
+          <span class="w-8 h-8 bg-[#2563EB] text-white rounded-lg flex items-center justify-center">S</span>
+          ShopKart
+        </a>
+      </div>
+
+      <!-- Search (hidden on mobile) -->
+      <input type="text" placeholder="Search for products..."
+        class="hidden sm:block flex-1 max-w-[500px] border border-[#E5E7EB] rounded-lg px-4 py-2 outline-none focus:border-[#2563EB]">
+
+      <div class="flex items-center gap-4 text-[#111827] text-lg">
+        <a href="#">&#128722;</a>
+        <a href="#">&#128100;</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-[1400px] mx-auto px-6 py-6">
+    <!-- Breadcrumb -->
+    <p class="mb-6"><a href="#" class="text-[#2563EB]">Home</a> &gt; All Products</p>
+
+    <!-- Filter bar (tablet + mobile) -->
+    <div class="flex lg:hidden gap-4 mb-6">
+      <button class="flex-1 bg-white border border-[#E5E7EB] rounded-lg py-2 font-medium text-[#111827]">Filters</button>
+      <button class="flex-1 bg-white border border-[#E5E7EB] rounded-lg py-2 font-medium text-[#111827]">Sort</button>
+    </div>
+
+    <div class="flex gap-8">
+      <!-- Sidebar (desktop only) -->
+      <aside class="hidden lg:block w-[240px] shrink-0 bg-white border border-[#E5E7EB] rounded-xl p-5 h-fit">
+        <h3 class="text-[16px] font-semibold text-[#111827] mb-4">Filters</h3>
+
+        <h4 class="font-semibold text-[#111827] mb-2">Category</h4>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Electronics</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Fashion</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Music</label>
+        <label class="block mb-4"><input type="checkbox" class="mr-2">Sports</label>
+
+        <h4 class="font-semibold text-[#111827] mb-2">Price Range</h4>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">₹0 - ₹25,000</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">₹25,000 - ₹50,000</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">₹50,000 - ₹75,000</label>
+        <label class="block mb-4"><input type="checkbox" class="mr-2">₹75,000+</label>
+
+        <h4 class="font-semibold text-[#111827] mb-2">Brand</h4>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Lenovo</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Emeet</label>
+        <label class="block mb-1"><input type="checkbox" class="mr-2">Finaxo</label>
+        <label class="block mb-4"><input type="checkbox" class="mr-2">Jaspoy</label>
+
+        <button class="w-full bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Apply Filters</button>
+      </aside>
+
+      <!-- Products -->
+      <section class="flex-1">
+        <div class="flex justify-between items-center mb-4">
+          <p>Showing 9 results</p>
+          <p class="hidden sm:block">Sort by: <span class="text-[#111827] font-medium">Popularity</span></p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+          <!-- HD Webcam -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/webcam.png" alt="HD Webcam" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-[#DC2626] text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+            </div>
+            <p class="mt-3 text-[13px]">Electronics</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">HD Webcam</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(1.2k)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹2,499</span>
+              <span class="line-through">₹3,999</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Graphic Oversized T-Shirt -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/tshirt.png" alt="Graphic Oversized T-Shirt" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+            </div>
+            <p class="mt-3 text-[13px]">Fashion</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Graphic Oversized T-Shirt</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(862)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹799</span>
+              <span class="line-through">₹1,299</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Baseball Cap -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/cap.png" alt="Baseball Cap" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+            </div>
+            <p class="mt-3 text-[13px]">Fashion</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Baseball Cap</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(654)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹499</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Lenovo LOQ Laptop -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/laptop.png" alt="Lenovo LOQ Laptop" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+            </div>
+            <p class="mt-3 text-[13px]">Electronics</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Lenovo LOQ Laptop</h3>
+            <p class="text-[#F59E0B]">★★★★★ <span class="text-[#6B7280]">(3.1k)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹92,990</span>
+              <span class="line-through">₹99,990</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Electronic Drum Kit -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/drums.png" alt="Electronic Drum Kit" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+            </div>
+            <p class="mt-3 text-[13px]">Music</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Electronic Drum Kit</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(728)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹41,990</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- 24 Colour Marker Set -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/markers.png" alt="24 Colour Marker Set" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-[#DC2626] text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+            </div>
+            <p class="mt-3 text-[13px]">Art Supplies</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">24 Colour Marker Set</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(1.4k)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹599</span>
+              <span class="line-through">₹899</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Denim Shoulder Bag -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/bag.png" alt="Denim Shoulder Bag" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+            </div>
+            <p class="mt-3 text-[13px]">Fashion</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Denim Shoulder Bag</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(410)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹899</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Skateboard -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/skateboard.png" alt="Skateboard" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-[#DC2626] text-white text-xs font-bold px-2 py-1 rounded">SALE</span>
+            </div>
+            <p class="mt-3 text-[13px]">Sports</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Skateboard</h3>
+            <p class="text-[#F59E0B]">★★★★☆ <span class="text-[#6B7280]">(975)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹2,999</span>
+              <span class="line-through">₹3,499</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+
+          <!-- Butterfly Trainer -->
+          <div class="group bg-white border border-[#E5E7EB] rounded-xl p-4 flex flex-col hover:shadow-lg">
+            <div class="relative h-[220px] rounded-lg overflow-hidden">
+              <img src="images/trainer.png" alt="Butterfly Trainer" class="w-full h-full object-contain group-hover:scale-110 transition duration-300">
+              <span class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+            </div>
+            <p class="mt-3 text-[13px]">Sports</p>
+            <h3 class="text-[16px] font-semibold text-[#111827]">Butterfly Trainer</h3>
+            <p class="text-[#F59E0B]">★★★☆☆ <span class="text-[#6B7280]">(320)</span></p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="text-[20px] font-bold text-[#111827]">₹699</span>
+            </div>
+            <button class="mt-4 bg-[#2563EB] hover:bg-blue-700 text-white font-medium py-2 rounded-lg">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Summit 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] text-[#475569] text-[16px] leading-[1.6]" style="font-family: 'Inter', sans-serif;">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b border-[#CBD5E1]">
+    <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-bold text-[#0F172A] text-lg">
+        <span class="w-8 h-8 bg-[#059669] text-white rounded-full flex items-center justify-center">U</span>
+        GLA University
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 font-medium text-[#111827]">
+        <a href="#" class="hover:text-[#2563EB]">Home</a>
+        <a href="#" class="hover:text-[#2563EB]">About</a>
+        <a href="#" class="hover:text-[#2563EB]">Events</a>
+        <a href="#" class="hover:text-[#2563EB]">Contact</a>
+        <a href="#" class="bg-[#2563EB] hover:bg-blue-700 text-white px-5 py-2 rounded-lg">Register Now</a>
+      </div>
+
+      <!-- Hamburger (tablet + mobile) -->
+      <button class="md:hidden text-2xl text-[#0F172A]">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="h-[500px] md:h-[600px] bg-[url('images/campus.png')] bg-cover bg-center">
+    <!-- Dark overlay so the white text is readable on the photo -->
+    <div class="h-full bg-[#0F172A]/70 flex items-center justify-center px-6">
+    <div class="max-w-[760px] text-center">
+      <span class="inline-block bg-[#7C3AED] text-white text-sm px-4 py-1 rounded-full mb-5">Tech • Learn • Connect</span>
+      <h1 class="text-[36px] md:text-[44px] lg:text-[56px] font-bold leading-[1.05] text-white">TECH SUMMIT 2026</h1>
+      <p class="mt-4 text-[18px] md:text-[20px] text-slate-200">Innovating the Future of Technology</p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+        <a href="#" class="h-12 px-6 rounded-lg bg-[#2563EB] hover:bg-blue-700 text-white font-medium flex items-center justify-center">Register Now</a>
+        <a href="#schedule" class="h-12 px-6 rounded-lg border border-white text-white font-medium flex items-center justify-center hover:bg-white hover:text-[#0F172A]">View Schedule</a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <main class="max-w-[1200px] mx-auto px-6">
+
+    <!-- Event details -->
+    <section class="py-12">
+      <h2 class="text-[26px] md:text-[32px] font-bold text-[#111827] mb-6">Event Details</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6">
+          <p class="text-sm">Date</p>
+          <p class="font-semibold text-[#111827]">15 Oct 2026</p>
+          <p class="text-sm">Friday</p>
+        </div>
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6">
+          <p class="text-sm">Venue</p>
+          <p class="font-semibold text-[#111827]">GLA University</p>
+          <p class="text-sm">Mathura</p>
+        </div>
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6">
+          <p class="text-sm">Speakers</p>
+          <p class="font-semibold text-[#111827]">25+</p>
+          <p class="text-sm">Industry Experts</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speakers -->
+    <section class="pb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-[26px] md:text-[32px] font-bold text-[#111827]">Featured Speakers</h2>
+        <a href="#" class="text-[#2563EB] font-medium">View all →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6 text-center">
+          <img src="images/speaker4.webp" alt="Dr. Ananya Sharma" class="w-24 h-24 rounded-full object-cover mx-auto">
+          <h3 class="mt-4 text-[18px] font-semibold text-[#111827]">Dr. Ananya Sharma</h3>
+          <p class="text-[14px]">AI Researcher</p>
+        </div>
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6 text-center">
+          <img src="images/speaker1.webp" alt="Rahul Mehta" class="w-24 h-24 rounded-full object-cover mx-auto">
+          <h3 class="mt-4 text-[18px] font-semibold text-[#111827]">Rahul Mehta</h3>
+          <p class="text-[14px]">CTO, TechCorp</p>
+        </div>
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6 text-center">
+          <img src="images/speaker3.webp" alt="Arjun Nair" class="w-24 h-24 rounded-full object-cover mx-auto">
+          <h3 class="mt-4 text-[18px] font-semibold text-[#111827]">Arjun Nair</h3>
+          <p class="text-[14px]">Product Lead</p>
+        </div>
+        <div class="bg-white border border-[#CBD5E1] rounded-xl p-6 text-center">
+          <img src="images/speaker2.webp" alt="Vikram Singh" class="w-24 h-24 rounded-full object-cover mx-auto">
+          <h3 class="mt-4 text-[18px] font-semibold text-[#111827]">Vikram Singh</h3>
+          <p class="text-[14px]">Cloud Architect</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="pb-16">
+      <h2 class="text-[26px] md:text-[32px] font-bold text-[#111827] mb-6">Event Schedule</h2>
+      <div class="bg-white border border-[#CBD5E1] rounded-xl px-6">
+        <div class="grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] py-5 border-b border-[#E2E8F0] font-semibold text-[#111827]">
+          <span>Time</span><span>Session</span>
+        </div>
+        <div class="grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] py-5 border-b border-[#E2E8F0]">
+          <span>10:00</span><span>Opening Ceremony</span>
+        </div>
+        <div class="grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] py-5 border-b border-[#E2E8F0]">
+          <span>11:00</span><span>AI &amp; Future</span>
+        </div>
+        <div class="grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] py-5 border-b border-[#E2E8F0]">
+          <span>12:30</span><span>Lunch</span>
+        </div>
+        <div class="grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] py-5">
+          <span>02:00</span><span>Cloud Computing</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
