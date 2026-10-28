@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="p">
+        Hi I am a <span style="display: none;"> very </span>
+        good person
+    </p>
+    <script>
+        console.log("inner Text:", document.getElementsByClassName("p").innerText );
+        console.log("inner Text:", document.getElementsByClassName("p").textContent );
+    </script>
+</body>
+</html>

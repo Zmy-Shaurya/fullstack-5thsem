@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const value = prompt("Enter a number:");
+        const number = Number(value);
+
+        if (value !== null && value.trim() !== "" && Number.isFinite(number)) {
+            document.write("Decimal: " + number + "<br>");
+            document.write("Binary: " + number.toString(2) + "<br>");
+            document.write("Hexadecimal: " + number.toString(16).toUpperCase());
+        } else {
+            document.write("Please enter a valid number.");
+        }
+    </script>
+</body>
+</html>

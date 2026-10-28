@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>?? returns right side only of left side is null. (nullish coalescing operator)</h1>
+    <p>
+        const a = null;
+        a ?? 1;
+        this will return 1;
+    </p>
+
+    <h2>??= is (nullish assignment operator) it assigns a value only if variable is null or undefined.</h2>
+
+
+    <script>
+        let obj = {
+            name: "Abhay",
+            location: {
+                city:"Mathura"
+            }
+        };
+        console.log(obj.location.state??="UP");
+    </script>
+</body>
+</html>
