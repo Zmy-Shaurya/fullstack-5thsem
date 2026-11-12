@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Match</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 10px;
+        }
+        .cell {
+            height: 80px;
+            background: lightblue;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Score: <span id="score">0</span></h1>
+    <div id="grid"></div>
+
+    <script>
+        let icons = ["🍎", "🍌", "🍇", "🍒", "🍉", "🍋", "🥝", "🍓"];
+        let cards = icons.concat(icons).sort(() => Math.random() - 0.5); // 16 shuffled cards
+
+        let grid = document.getElementById("grid");
+        let scoreEl = document.getElementById("score");
+        let score = 0;
+        let first = null; // first revealed cell
+        let busy = false; // true while a wrong pair is showing
+
+        cards.forEach(function (icon) {
+            let cell = document.createElement("div");
+            cell.className = "cell";
+
+            cell.onclick = function () {
+                if (busy || cell.textContent !== "") return; // ignore open cells
+
+                cell.textContent = icon;
+
+                if (first === null) {
+                    first = cell;
+                } else if (first.textContent === icon) {
+                    score++;
+                    scoreEl.textContent = score;
+                    first = null;
+                } else {
+                    busy = true;
+                    let a = first;
+                    first = null;
+                    setTimeout(function () {
+                        a.textContent = "";
+                        cell.textContent = "";
+                        busy = false;
+                    }, 700);
+                }
+            };
+
+            grid.appendChild(cell);
+        });
+    </script>
+
+</body>
+</html>
