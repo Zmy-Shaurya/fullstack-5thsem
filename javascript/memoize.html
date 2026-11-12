@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function memoize(fun) {
+            const cache = {};
+            return function (x, y) {
+                const key = `${x}, ${y}`;
+                if (cache[key]) {
+                    console.log('from cache');
+                    return cache[key];
+                }
+                const res = fn(x, y);
+                cache[key] = res;
+                return res;
+            }
+        }
+        const add = memoize(function (x, y) {
+            return x + y;
+        });
+
+
+
+        function memoizeFactorial() {
+            let cache = {};
+
+            function factorial(n) {
+                if (n <= 1) return 1;
+
+                if (n in cache) {
+                    console.log("Fetching from cache:", n);
+                    return cache[n];
+                }
+
+                console.log("Calculating:", n);
+
+                cache[n] = n * factorial(n - 1);
+
+                return cache[n];
+            }
+
+            return factorial;
+        }
+
+        let fact = memoizeFactorial();
+
+        console.log(fact(5)); 
+        console.log(fact(5)); 
+        console.log(fact(6)); 
+    </script>
+</body>
+
+</html>

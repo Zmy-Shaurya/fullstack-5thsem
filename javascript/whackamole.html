@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack a Mole</title>
+    <style>
+        .hole {
+            height: 100px;
+            width: 100px;
+        }
+
+        .holes {
+            display: flex;
+            width: 300px;
+            flex-wrap: wrap;
+        }
+
+        .start {
+            width: 300px;
+            height: 50px;
+            display: block;
+        }
+
+        body {
+            justify-items: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Whack A Mole!</h1>
+    <div class="holes">
+        <button id="1" class="hole"></button>
+        <button id="2" class="hole"></button>
+        <button id="3" class="hole"></button>
+        <button id="4" class="hole"></button>
+        <button id="5" class="hole"></button>
+        <button id="6" class="hole"></button>
+        <button id="7" class="hole"></button>
+        <button id="8" class="hole"></button>
+        <button id="9" class="hole"></button>
+    </div>
+    <br />
+    <h3>points : <span id="points">0</span></h3>
+    <br />
+    <button class="start">start</button>
+
+    <script>
+        const time = 10;
+
+        const holes = document.querySelectorAll(".hole");
+        const start = document.querySelector(".start");
+        const points = document.getElementById("points");
+
+        let score = 0;
+        let mole;
+        let gameTime;
+        let timer;
+
+        start.addEventListener("click", function () {
+            score = 0;
+            points.innerText = score;
+
+            start.disabled = true;
+
+            gameTime = time;
+            mole = Math.floor(Math.random() * 9) + 1;
+
+            holes.forEach(function (hole) {
+                hole.innerText = "";
+            });
+
+            holes[mole - 1].innerText = "🐹";
+
+            timer = setInterval(function () {
+                gameTime--;
+
+                if (gameTime <= 0) {
+                    clearInterval(timer);
+                    clearInterval(moleTimer);
+
+                    start.disabled = false;
+
+                    holes.forEach(function (hole) {
+                        hole.innerText = "";
+                    });
+
+                    alert("Game Over! Your score: " + score);
+                }
+            }, 2000);
+
+            var moleTimer = setInterval(function () {
+                holes.forEach(function (hole) {
+                    hole.innerText = "";
+                });
+
+                mole = Math.floor(Math.random() * 9) + 1;
+                holes[mole - 1].innerText = "🐹";
+            }, 700);
+        });
+
+        holes.forEach(function (hole) {
+            hole.addEventListener("click", function () {
+                if (gameTime > 0 && Number(hole.id) === mole) {
+                    score++;
+                    points.innerText = score;
+
+                    hole.innerText = "";
+
+                    mole = -1;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

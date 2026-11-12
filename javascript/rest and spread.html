@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript - Rest and Spread Operators</title>
+</head>
+<body>
+	<h1>Rest and Spread Operators</h1>
+
+	<p>
+		The <strong>spread operator</strong> expands an iterable into individual values.
+		The <strong>rest operator</strong> collects multiple values into an array.
+		Both use three dots: <code>...</code>.
+	</p>
+
+	<h2>1. Spread with Arrays</h2>
+	<pre><code>const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+const numbers = [...first, ...second];
+console.log(numbers); // [1, 2, 3, 4, 5, 6]
+
+// Copy an array
+const copy = [...first];</code></pre>
+
+	<h2>2. Spread with Objects</h2>
+	<pre><code>const user = { name: "Alex", age: 20 };
+const updatedUser = { ...user, city: "Delhi" };
+
+console.log(updatedUser);
+// { name: "Alex", age: 20, city: "Delhi" }
+
+// Later properties overwrite earlier properties
+const changedUser = { ...user, age: 21 };</code></pre>
+
+	<h2>3. Spread in Function Calls</h2>
+	<pre><code>const marks = [85, 90, 78];
+
+function add(a, b, c) {
+	return a + b + c;
+}
+
+console.log(add(...marks)); // 253
+console.log(Math.max(...marks)); // 90</code></pre>
+
+	<h2>4. Rest Parameters</h2>
+	<p>Rest parameters collect all remaining function arguments into an array.</p>
+	<pre><code>function sum(...numbers) {
+	return numbers.reduce((total, number) => total + number, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+
+function introduce(firstName, ...hobbies) {
+	console.log(firstName, hobbies);
+}
+
+introduce("Alex", "reading", "music");
+// Alex ["reading", "music"]</code></pre>
+
+	<h2>5. Rest in Destructuring</h2>
+	<pre><code>const colors = ["red", "green", "blue", "yellow"];
+const [firstColor, ...otherColors] = colors;
+
+console.log(firstColor);  // red
+console.log(otherColors); // ["green", "blue", "yellow"]
+
+const { name, ...details } = {
+	name: "Alex",
+	age: 20,
+	city: "Delhi"
+};
+
+console.log(name);    // Alex
+console.log(details); // { age: 20, city: "Delhi" }</code></pre>
+
+	<h2>Important Rules</h2>
+	<ul>
+		<li>Spread expands values; rest collects values.</li>
+		<li>Rest must be the last parameter or destructured item.</li>
+		<li>Spread creates shallow copies, not deep copies.</li>
+		<li>Rest parameters are always stored in an array.</li>
+	</ul>
+
+	<script>
+		// Spread example
+		const subjects = ["HTML", "CSS"];
+		const allSubjects = [...subjects, "JavaScript"];
+		console.log("Spread:", allSubjects);
+
+		// Rest example
+		function calculateTotal(...prices) {
+			return prices.reduce((total, price) => total + price, 0);
+		}
+		console.log("Rest:", calculateTotal(100, 200, 50)); // 350
+	</script>
+</body>
+</html>

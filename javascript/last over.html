@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Last Over — Cricket Chase</title>
+	<style>
+		:root { --ink:#14213d; --green:#087f5b; --gold:#ffd166; --cream:#fffaf0; }
+		* { box-sizing:border-box; }
+		body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif; background:radial-gradient(circle at 15% 10%,#dff8ef 0,#eaf5ff 42%,#c9daf5 100%); }
+		.game { width:min(940px,100%); overflow:hidden; border:1px solid #ffffffaa; border-radius:28px; background:#ffffffd9; box-shadow:0 24px 70px #14213d2a; backdrop-filter:blur(12px); }
+		header { display:flex; align-items:center; justify-content:space-between; padding:24px 30px 18px; gap:20px; }
+		h1 { margin:0; font-size:clamp(1.7rem,4vw,2.7rem); letter-spacing:-.05em; } h1 span { color:var(--green); }
+		.tag { margin:5px 0 0; color:#637083; font-size:.92rem; }
+		.best { padding:10px 14px; border-radius:14px; background:#fff3c4; color:#765600; font-weight:800; white-space:nowrap; }
+		.difficulty { display:flex; gap:8px; padding:0 30px 18px; flex-wrap:wrap; }
+		.difficulty button,.play-again { border:0; border-radius:999px; padding:9px 16px; cursor:pointer; font-weight:800; color:var(--ink); background:#e9eef5; transition:.2s; }
+		button:hover { transform:translateY(-2px); filter:brightness(1.03); } .difficulty .active { color:#fff; background:var(--green); }
+		.scoreboard { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:0 30px 22px; border-radius:18px; overflow:hidden; background:#d8e0e8; }
+		.stat { text-align:center; padding:15px 8px; background:#f7fafc; } .stat small { display:block; color:#718096; font-size:.76rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; } .stat strong { display:block; margin-top:3px; font-size:1.75rem; }
+		.arena { position:relative; height:310px; margin:0 30px; overflow:hidden; border-radius:22px; background:linear-gradient(#70c4e7 0 38%,#77b957 38% 100%); }
+		.crowd { position:absolute; inset:0 0 auto; height:38%; opacity:.7; background:repeating-linear-gradient(90deg,#f7d794 0 13px,#e98973 13px 26px,#8fd3c7 26px 39px); }
+		.pitch { position:absolute; left:10%; right:10%; bottom:0; height:40%; border-radius:50% 50% 0 0; background:#c9a66b; } .pitch:before,.pitch:after { content:""; position:absolute; top:40%; width:12px; height:58px; background:#f9f0c5; border-radius:5px; } .pitch:before { left:12%; } .pitch:after { right:12%; }
+		.crease { position:absolute; left:10%; right:10%; top:53%; border-top:3px solid #fff9; } .batter { position:absolute; right:12%; bottom:33%; width:44px; height:92px; border-radius:22px 22px 8px 8px; background:#263c72; } .batter:before { content:""; position:absolute; top:-27px; left:9px; width:27px; height:27px; border-radius:50%; background:#db9b74; }
+		.ball { position:absolute; z-index:3; left:16%; bottom:48%; width:22px; height:22px; border-radius:50%; background:#d62839; box-shadow:0 2px 6px #0006; transform:translate(-50%,-50%); }
+		.ball:after { content:""; position:absolute; inset:3px 9px; border-left:1px dashed #fff; transform:rotate(35deg); }
+		.aim { position:absolute; z-index:2; right:18%; bottom:48%; width:72px; height:72px; border:2px dashed #fff9; border-radius:50%; transform:translate(50%,50%); }
+		.message { position:absolute; left:0; right:0; top:16px; text-align:center; color:#fff; text-shadow:0 2px 3px #0008; font-weight:900; font-size:1.1rem; }
+		.controls { display:flex; align-items:center; justify-content:center; gap:16px; padding:23px 30px 28px; flex-wrap:wrap; }
+		.hit { min-width:190px; border:0; border-radius:16px; padding:16px 30px; color:#362500; background:var(--gold); box-shadow:0 5px 0 #e0a900; cursor:pointer; font-size:1.08rem; font-weight:950; transition:.12s; } .hit:active { transform:translateY(4px); box-shadow:0 1px 0 #e0a900; } .hint { color:#718096; font-size:.86rem; }
+		.overlay { position:absolute; inset:0; z-index:5; display:grid; place-items:center; padding:24px; background:#102a43bb; } .result { width:min(400px,100%); padding:28px; border-radius:22px; text-align:center; background:var(--cream); box-shadow:0 15px 40px #0005; } .result h2 { margin:0 0 8px; font-size:2rem; } .result p { color:#637083; } .play-again { color:#fff; background:var(--green); padding:12px 22px; }
+		[hidden] { display:none !important; }
+		@media (max-width:560px) { body{padding:10px;} header{padding:20px 18px 14px;align-items:flex-start;flex-direction:column;} .best{align-self:flex-start;} .difficulty,.scoreboard{margin-left:18px;margin-right:18px;} .arena{margin:0 18px;height:270px;} .controls{padding-left:18px;padding-right:18px;} }
+	</style>
+</head>
+<body>
+	<main class="game">
+		<header><div><h1>Last <span>Over</span></h1><p class="tag">Six balls. One big finish.</p></div><div class="best" id="best">Best: —</div></header>
+		<nav class="difficulty" aria-label="Difficulty"><button data-level="easy" class="active">Easy</button><button data-level="medium">Medium</button><button data-level="hard">Hard</button></nav>
+		<section class="scoreboard" aria-label="Scoreboard"><div class="stat"><small>Runs needed</small><strong id="needed">12</strong></div><div class="stat"><small>Balls left</small><strong id="balls">6</strong></div><div class="stat"><small>Wickets</small><strong id="wickets">2</strong></div></section>
+		<section class="arena" id="arena"><div class="crowd"></div><div class="message" id="commentary">Time it at the crease!</div><div class="pitch"><div class="crease"></div><div class="batter"></div><div class="aim"></div><div class="ball" id="ball"></div></div><div class="overlay" id="overlay" hidden><div class="result"><h2 id="resultTitle"></h2><p id="resultText"></p><button class="play-again" id="again">Play Again</button></div></div></section>
+		<div class="controls"><button class="hit" id="hit">🏏 HIT! <span>(Space)</span></button><span class="hint">Press when the ball reaches the target</span></div>
+	</main>
+	<script>
+		(() => {
+			const settings = { easy:{target:12,speed:2100}, medium:{target:18,speed:1500}, hard:{target:24,speed:1050} };
+			const $ = id => document.getElementById(id), ball=$('ball'); let level='easy', score=0, balls=6, wickets=2, start=0, duration=2100, active=false, timer;
+			const lines = {6:'That’s gone into the stands!',4:'Cracking shot through the gap!',1:'They scamper a single.',0:'Dot ball. Pressure mounts.',W:'Clean bowled!'};
+			function bestText(){ const best=localStorage.getItem('lastOverBest'); $('best').textContent=best ? 'Best: '+best : 'Best: —'; }
+			function update(){ $('needed').textContent=Math.max(0,settings[level].target-score); $('balls').textContent=balls; $('wickets').textContent=wickets; }
+			function move(){ if(!active)return; const p=Math.min(1,(performance.now()-start)/duration); ball.style.left=(16+p*68)+'%'; if(p<1) timer=requestAnimationFrame(move); }
+			function delivery(){ active=true; start=performance.now(); duration=settings[level].speed; ball.style.left='16%'; timer=requestAnimationFrame(move); }
+			function finish(win){ active=false; cancelAnimationFrame(timer); const total=settings[level].target; $('resultTitle').textContent=win?'🏆 Chase complete!':'Innings over'; $('resultText').textContent=win ? `You made ${score} runs with ${balls} ball${balls===1?'':'s'} to spare.` : `You finished on ${score}/${total}. Better luck next over!`; $('overlay').hidden=false; const old=Number(localStorage.getItem('lastOverBest')||0); if(score>old){localStorage.setItem('lastOverBest',score);bestText();} }
+			function hit(){ if(!active || !$('overlay').hidden)return; const elapsed=performance.now()-start, ideal=duration, diff=Math.abs(elapsed-ideal); let runs=diff<115?6:diff<300?4:diff<560?1:0; if(runs===0 && Math.random()<.22){wickets--; $('commentary').textContent=lines.W;} else {$('commentary').textContent=lines[runs]; score+=runs;} balls--; update(); if(score>=settings[level].target || balls===0 || wickets===0) setTimeout(()=>finish(score>=settings[level].target),450); else setTimeout(delivery,550); }
+			function reset(){ score=0; balls=6; wickets=2; $('overlay').hidden=true; $('commentary').textContent='Time it at the crease!'; update(); delivery(); }
+			document.querySelectorAll('[data-level]').forEach(btn=>btn.onclick=()=>{level=btn.dataset.level;document.querySelectorAll('[data-level]').forEach(b=>b.classList.toggle('active',b===btn));reset();});
+			$('hit').onclick=hit; $('again').onclick=reset; document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();hit();}}); bestText(); update(); delivery();
+		})();
+	</script>
+</body>
+</html>

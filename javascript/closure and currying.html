@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Currying
+        function a(x){
+            return function b(y){
+                return function c(z){
+                    return x+y+z;
+                }
+            }
+        }
+        console.log(a(1)(2)(3));
+
+
+        //Closure
+        function outer(){
+            var a=0;
+            function inner(){
+                a++;
+                console.log(a);
+            }
+            return {inner};
+        }
+        const counter=outer();
+        counter.inner();
+        counter.inner();
+        counter.inner();
+
+
+
+        
+    </script>
+</body>
+</html>

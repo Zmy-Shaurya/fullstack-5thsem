@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors!!</h1>
+
+    <input type="text" id="guess" placeholder="Rock, Paper or Scissors">
+    <button id="btn" onclick="guess()">Play!</button>
+
+    <p>Wins: <span id="tries">0</span></p>
+    <h2 id="sentence"></h2>
+
+    <script>
+        let tries = 0;
+
+        function guess() {
+            let value = document.getElementById("guess").value.toLowerCase();
+            let choices = ["rock", "paper", "scissors"];
+            let random = choices[Math.floor(Math.random() * 3)];
+
+
+            if (value !== "rock" && value !== "paper" && value !== "scissors") {
+                document.getElementById("sentence").textContent = "Enter Rock, Paper or Scissors!";
+            }
+            else if (value === random) {
+                document.getElementById("sentence").textContent = "Computer chose " + random + ". It's a Draw!";
+            }
+            else if ((value=="rock" && random =="scissors")||(value =="paper" && random =="rock") || (value == "scissors" && random== "paper")) {
+                tries++;
+                document.getElementById("tries").textContent = tries;
+                document.getElementById("sentence").textContent= "Computer chose "+random+".You Win!";
+            }
+            else{
+                document.getElementById("sentence").textContent = "Computer chose "+random +". You Lose!";
+            }
+        }
+    </script>
+</body>
+</html>

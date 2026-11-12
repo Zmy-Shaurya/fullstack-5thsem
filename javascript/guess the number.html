@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+<body>
+    <h1>Guess the Number!!</h1>
+    <input type="number" id="guess">
+    <button id="btn">Guess!</button>
+
+    <p>Tries: <span id="tries">0</span></p>
+    <h2 id="sentence"></h2>
+
+    <script>
+        const random = Math.floor(Math.random() * 100) + 1;
+        let tries = 0;
+
+        function guess() {
+            let value = Number(document.getElementById("guess").value);
+
+            tries++;
+            document.getElementById("tries").textContent = tries;
+
+            if (value === random) {
+                document.getElementById("sentence").textContent = "Correct!! Guessed in " + tries + " tries!";
+            }
+            else if (value < random) {
+                document.getElementById("sentence").textContent = "Go Higher!";
+            }
+            else if (value > random) {
+                document.getElementById("sentence").textContent = "Go Lower!";
+            }
+        }
+
+        document.getElementById("btn").addEventListener("click", guess);
+    </script>
+</body>
+</html>
