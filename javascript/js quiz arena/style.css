@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef;
+  display: flex;
+  justify-content: center;
+  padding: 30px 10px;
+}
+
+.box {
+  background: white;
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.correct {
+  background: lightgreen;
+}
+
+.wrong {
+  background: lightcoral;
+}
+
+button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

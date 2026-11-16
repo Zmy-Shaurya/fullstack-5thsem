@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Timer</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="msg">Click anywhere to start</h1>
+
+    <script>
+        let msg = document.getElementById("msg");
+        let state = "idle"; // idle -> waiting -> green -> idle
+        let startTime;
+        let timeout;
+
+        document.body.onclick = function () {
+            if (state === "idle") {
+                msg.textContent = "Wait for green...";
+                state = "waiting";
+                let delay = 2000 + Math.random() * 3000; // 2 to 5 seconds
+                timeout = setTimeout(function () {
+                    document.body.style.background = "green";
+                    msg.textContent = "CLICK!";
+                    startTime = Date.now();
+                    state = "green";
+                }, delay);
+            }
+            else if (state === "waiting") {
+                clearTimeout(timeout);
+                msg.textContent = "Too early! Click to try again";
+                state = "idle";
+            }
+            else if (state === "green") {
+                let time = Date.now() - startTime;
+                document.body.style.background = "";
+                let flag = time <= 400 ? "Perfect Timing" : "Too late";
+                msg.textContent = time + " ms - " + flag + ". Click to try again";
+                state = "idle";
+            }
+        };
+    </script>
+
+</body>
+</html>
