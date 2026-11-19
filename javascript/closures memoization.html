@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Clousures - Memoization");
+        function add(fn){
+            let obj = {};
+            return function(x,y){
+                let key = `x,y`;
+                if (obj.hasOwnProperty(key)){
+                    console.log('from cache');
+                    return obj[key];
+                }
+
+                let res = fn(x,y);
+                obj[key] = res;
+                return obj[key];
+            }
+        }
+
+        function factorial(fn){
+            
+        }
+    </script>
+</body>
+</html>
